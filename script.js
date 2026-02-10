@@ -1,8 +1,13 @@
-// Fonction pour afficher le bon formulaire
-function showForm(type) {
-  document.getElementById("employeeSection").style.display = (type === "employee") ? "block" : "none";
-  document.getElementById("recruiterSection").style.display = (type === "recruiter") ? "block" : "none";
-}
+// Afficher le bon formulaire quand on clique sur un bouton
+document.getElementById("btnEmployee").addEventListener("click", function() {
+  document.getElementById("employeeSection").style.display = "block";
+  document.getElementById("recruiterSection").style.display = "none";
+});
+
+document.getElementById("btnRecruiter").addEventListener("click", function() {
+  document.getElementById("recruiterSection").style.display = "block";
+  document.getElementById("employeeSection").style.display = "none";
+});
 
 // Gestion des employés
 document.getElementById("employeeForm").addEventListener("submit", function(e) {
@@ -30,3 +35,4 @@ document.getElementById("recruiterForm").addEventListener("submit", function(e) 
 
   e.target.reset();
 });
+
