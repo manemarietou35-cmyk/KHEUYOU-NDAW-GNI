@@ -53,3 +53,34 @@ footer {
   text-align: center;
   padding: 20px;
 }
+#gallery {
+  text-align: center;
+  padding: 40px;
+  background-color: #f0f0f0;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.gallery-item {
+  width: 200px;
+  text-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* garde l’image bien cadrée */
+  border-radius: 10px; /* coins arrondis */
+  border: 3px solid #00695c;
+}
+
+.gallery-item p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
