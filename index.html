@@ -62,9 +62,32 @@
     <button type="submit">Ajouter</button>
   </form>
 
+ <h3>Ajouter un employé</h3>
+<form id="employeeForm">
+  <input type="text" id="employeeName" placeholder="Nom de l'employé" required>
+  <input type="text" id="employeeSkill" placeholder="Compétence" required>
+
+  <select id="employeeSector" required>
+    <option value="">-- Choisir un secteur --</option>
+    <option value="Agriculture">Agriculture</option>
+    <option value="Élevage">Élevage</option>
+    <option value="Informatique">Informatique</option>
+    <option value="Technique">Technique</option>
+    <option value="Pêche">Pêche</option>
+    <option value="Chimie">Chimie</option>
+    <option value="Ménage">Ménage</option>
+    <option value="Génie civil">Génie civil</option>
+    <option value="Gestionnaire">Gestionnaire</option>
+    <option value="Mécanique">Mécanique</option>
+  </select>
+
+  <button type="submit">Ajouter</button>
+</form>
+   
   <h3>Liste des recruteurs</h3>
   <ul id="recruiterList"></ul>
 </section>
+
 
 <script src="script.js"></script>
 
