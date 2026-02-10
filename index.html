@@ -25,13 +25,6 @@
     <p>Notre mission est de digitaliser la main-d’œuvre informelle au Sénégal afin de faciliter la mise en relation entre travailleurs qualifiés et employeurs.</p>
   </section>
 
-  <section id="value">
-    <h2>Proposition de valeur</h2>
-    <p>Pour les travailleurs : accès rapide aux offres adaptées.<br>
-       Pour les employeurs : main-d’œuvre qualifiée et disponible.<br>
-       Pour le marché : digitalisation et sécurisation des recrutements.</p>
-  </section>
-
   <section id="contact">
     <h2>Contact</h2>
     <p>Email : contact@kheuyou-ndaw-gni.sn</p>
@@ -41,9 +34,6 @@
   <footer>
     <p>&copy; 2026 KHEUYOU-NDAW-GNI</p>
   </footer>
-
-  <section id="database">
-  <h2>Base de données</h2>
 
   <h3>Ajouter un employé</h3>
   <form id="employeeForm">
@@ -84,10 +74,58 @@
   <button type="submit">Ajouter</button>
 </form>
    
-  <h3>Liste des recruteurs</h3>
-  <ul id="recruiterList"></ul>
 </section>
 
+<section id="database">
+  <h2>Base de données</h2>
+
+  <!-- Boutons pour choisir -->
+  <button onclick="showForm('employee')">Créer mon profil (Employé)</button>
+  <button onclick="showForm('recruiter')">Créer mon profil (Recruteur)</button>
+
+  <!-- Formulaire Employé (caché au départ) -->
+  <div id="employeeSection" style="display:none;">
+    <h3>Ajouter un employé</h3>
+    <form id="employeeForm">
+      <input type="text" id="employeeName" placeholder="Nom de l'employé" required>
+      <input type="text" id="employeeSkill" placeholder="Compétence" required>
+
+      <select id="employeeSector" required>
+        <option value="">-- Choisir un secteur --</option>
+        <option value="Agriculture">Agriculture</option>
+        <option value="Élevage">Élevage</option>
+        <option value="Informatique">Informatique</option>
+        <option value="Technique">Technique</option>
+        <option value="Pêche">Pêche</option>
+        <option value="Chimie">Chimie</option>
+        <option value="Ménage">Ménage</option>
+        <option value="Génie civil">Génie civil</option>
+        <option value="Gestionnaire">Gestionnaire</option>
+        <option value="Mécanique">Mécanique</option>
+      </select>
+
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <h3>Liste des employés</h3>
+    <ul id="employeeList"></ul>
+  </div>
+
+  <!-- Formulaire Recruteur (caché au départ) -->
+  <div id="recruiterSection" style="display:none;">
+    <h3>Ajouter un recruteur</h3>
+    <form id="recruiterForm">
+      <input type="text" id="recruiterName" placeholder="Nom du recruteur" required>
+      <input type="text" id="recruiterCompany" placeholder="Entreprise" required>
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <h3>Liste des recruteurs</h3>
+    <ul id="recruiterList"></ul>
+  </div>
+</section>
+
+<script src="script.js"></script>
 
 <script src="script.js"></script>
 
