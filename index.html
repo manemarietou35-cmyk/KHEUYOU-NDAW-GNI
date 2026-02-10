@@ -32,11 +32,6 @@
        Pour le marché : digitalisation et sécurisation des recrutements.</p>
   </section>
 
-  <section id="bmc">
-    <h2>Business Model Canvas</h2>
-    <img src="assets/bmc.png" alt="C:\Users\Administrateur\Downloads\Business Model Canva.png">
-  </section>
-
   <section id="contact">
     <h2>Contact</h2>
     <p>Email : contact@kheuyou-ndaw-gni.sn</p>
@@ -46,5 +41,32 @@
   <footer>
     <p>&copy; 2026 KHEUYOU-NDAW-GNI</p>
   </footer>
+
+  <section id="database">
+  <h2>Base de données</h2>
+
+  <h3>Ajouter un employé</h3>
+  <form id="employeeForm">
+    <input type="text" id="employeeName" placeholder="Nom de l'employé" required>
+    <input type="text" id="employeeSkill" placeholder="Compétence" required>
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <h3>Liste des employés</h3>
+  <ul id="employeeList"></ul>
+
+  <h3>Ajouter un recruteur</h3>
+  <form id="recruiterForm">
+    <input type="text" id="recruiterName" placeholder="Nom du recruteur" required>
+    <input type="text" id="recruiterCompany" placeholder="Entreprise" required>
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <h3>Liste des recruteurs</h3>
+  <ul id="recruiterList"></ul>
+</section>
+
+<script src="script.js"></script>
+
 </body>
 </html>
