@@ -1,3 +1,9 @@
+// Fonction pour afficher le bon formulaire
+function showForm(type) {
+  document.getElementById("employeeSection").style.display = (type === "employee") ? "block" : "none";
+  document.getElementById("recruiterSection").style.display = (type === "recruiter") ? "block" : "none";
+}
+
 // Gestion des employés
 document.getElementById("employeeForm").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -24,4 +30,3 @@ document.getElementById("recruiterForm").addEventListener("submit", function(e) 
 
   e.target.reset();
 });
-s
