@@ -84,27 +84,32 @@
       <ul id="recruiterList"></ul>
     </div>
   </section>
-<section id="gallery">
-  <h2>Galerie des secteurs</h2>
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="assets/construction.jpg" alt="Construction">
-      <p>Génie civil & BTP</p>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/agriculture.jpg" alt="Agriculture">
-      <p>Agriculture & Élevage</p>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/shopping.jpg" alt="Commerce">
-      <p>Commerce & Distribution</p>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/weaving.jpg" alt="Artisanat">
-      <p>Artisanat & Textile</p>
-    </div>
-  </div>
+<div id="employeeSection" style="display:none;">
+  <h3>Ajouter un employé</h3>
+  <form id="employeeForm">
+    <input type="text" id="employeeName" placeholder="Nom de l'employé" required>
+    <input type="text" id="employeeSkill" placeholder="Compétence" required>
+
+    <select id="employeeSector" required onchange="updateSectorImage()">
+      <option value="">-- Choisir un secteur --</option>
+      <option value="Agriculture">Agriculture</option>
+      <option value="Construction">Construction</option>
+      <option value="Commerce">Commerce</option>
+      <option value="Artisanat">Artisanat</option>
+    </select>
 </section>
+    <!-- Image qui change selon le secteur choisi -->
+    <div id="sectorImage" style="margin-top:15px;">
+      <img id="sectorPreview" src="" alt="Illustration du secteur" style="display:none; width:200px; border-radius:10px; border:2px solid #00695c;">
+    </div>
+
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <h3>Liste des employés</h3>
+  <ul id="employeeList"></ul>
+</div>
+
 
  <script src="script.js"></script>
 </body>
