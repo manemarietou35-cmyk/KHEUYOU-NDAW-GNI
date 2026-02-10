@@ -1,13 +1,24 @@
-// Afficher le bon formulaire quand on clique sur un bouton
-document.getElementById("btnEmployee").addEventListener("click", function() {
-  document.getElementById("employeeSection").style.display = "block";
-  document.getElementById("recruiterSection").style.display = "none";
-});
+// Fonction pour afficher l'image du secteur choisi
+function updateSectorImage() {
+  const sector = document.getElementById("employeeSector").value;
+  const preview = document.getElementById("sectorPreview");
 
-document.getElementById("btnRecruiter").addEventListener("click", function() {
-  document.getElementById("recruiterSection").style.display = "block";
-  document.getElementById("employeeSection").style.display = "none";
-});
+  if (sector === "Agriculture") {
+    preview.src = "assets/agriculture.jpg";
+    preview.style.display = "block";
+  } else if (sector === "Construction") {
+    preview.src = "assets/construction.jpg";
+    preview.style.display = "block";
+  } else if (sector === "Commerce") {
+    preview.src = "assets/shopping.jpg";
+    preview.style.display = "block";
+  } else if (sector === "Artisanat") {
+    preview.src = "assets/weaving.jpg";
+    preview.style.display = "block";
+  } else {
+    preview.style.display = "none";
+  }
+}
 
 // Gestion des employés
 document.getElementById("employeeForm").addEventListener("submit", function(e) {
@@ -21,18 +32,6 @@ document.getElementById("employeeForm").addEventListener("submit", function(e) {
   document.getElementById("employeeList").appendChild(li);
 
   e.target.reset();
-});
-
-// Gestion des recruteurs
-document.getElementById("recruiterForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const name = document.getElementById("recruiterName").value;
-  const company = document.getElementById("recruiterCompany").value;
-
-  const li = document.createElement("li");
-  li.textContent = `${name} - ${company}`;
-  document.getElementById("recruiterList").appendChild(li);
-
-  e.target.reset();
+  document.getElementById("sectorPreview").style.display = "none"; // cacher l’image après ajout
 });
 
