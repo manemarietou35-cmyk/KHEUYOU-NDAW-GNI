@@ -2,21 +2,39 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>KHEUYOU-NDAW-GNI</title>
+  <title>Ligueyu Ndaw Yi</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>KHEUYOU-NDAW-GNI</h1>
+  <header>
+    <h1>Ligueyu Ndaw Yi</h1>
+    <nav>
+      <ul>
+        <li><a href="#inscription">Inscription</a></li>
+        <li><a href="#liste">Utilisateurs</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h2>Inscription utilisateur</h2>
-  <form id="formUtilisateur">
-    <input type="text" id="nom" placeholder="Nom" required>
-    <input type="text" id="secteur" placeholder="Secteur" required>
-    <button type="submit">Envoyer</button>
-  </form>
+  <main>
+    <section id="inscription">
+      <h2>Inscription utilisateur</h2>
+      <form id="formUtilisateur">
+        <input type="text" id="nom" placeholder="Nom complet" required>
+        <input type="text" id="secteur" placeholder="Secteur d’activité" required>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
 
-  <h2>Liste des utilisateurs</h2>
-  <ul id="listeUtilisateurs"></ul>
+    <section id="liste">
+      <h2>Liste des utilisateurs</h2>
+      <div class="card-container" id="listeUtilisateurs"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Ligueyu Ndaw Yi</p>
+  </footer>
 
   <script type="module" src="app.js"></script>
 </body>
