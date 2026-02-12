@@ -7,7 +7,10 @@
 </head>
 <body>
   <header>
-    <h1>Ligueyu Ndaw Yi</h1>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo Ligueyu Ndaw Yi">
+      <h1>Ligueyu Ndaw Yi</h1>
+    </div>
     <nav>
       <ul>
         <li><a href="#inscription">Inscription</a></li>
@@ -17,6 +20,12 @@
   </header>
 
   <main>
+    <section id="hero">
+      <h2>Bienvenue sur la plateforme</h2>
+      <p>Un espace pour connecter les jeunes talents avec les opportunités.</p>
+      <button onclick="document.getElementById('inscription').scrollIntoView()">Commencer</button>
+    </section>
+
     <section id="inscription">
       <h2>Inscription utilisateur</h2>
       <form id="formUtilisateur">
@@ -27,13 +36,13 @@
     </section>
 
     <section id="liste">
-      <h2>Liste des utilisateurs</h2>
+      <h2>Nos utilisateurs</h2>
       <div class="card-container" id="listeUtilisateurs"></div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Ligueyu Ndaw Yi</p>
+    <p>&copy; 2026 Ligueyu Ndaw Yi | Développé avec ❤️ par la communauté</p>
   </footer>
 
   <script type="module" src="app.js"></script>
