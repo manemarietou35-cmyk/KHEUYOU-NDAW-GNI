@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Configuration Firebase (remplace par tes vraies clés)
 const firebaseConfig = {
   apiKey: "TA_CLE_API",
   authDomain: "ton-projet.firebaseapp.com",
@@ -17,7 +16,6 @@ const db = getFirestore(app);
 const form = document.getElementById("formUtilisateur");
 const liste = document.getElementById("listeUtilisateurs");
 
-// Ajouter un utilisateur
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const nom = document.getElementById("nom").value;
@@ -29,7 +27,6 @@ form.addEventListener("submit", async (e) => {
   afficherUtilisateurs();
 });
 
-// Afficher les utilisateurs sous forme de cartes
 async function afficherUtilisateurs() {
   liste.innerHTML = "";
   const querySnapshot = await getDocs(collection(db, "utilisateurs"));
@@ -37,13 +34,16 @@ async function afficherUtilisateurs() {
     const data = doc.data();
     const card = document.createElement("div");
     card.className = "card";
-    card.innerHTML = `<h3>${data.nom}</h3><p>Secteur : ${data.secteur}</p>`;
+    card.innerHTML = `
+      <h3>${data.nom}</h3>
+      <p><strong>Secteur :</strong> ${data.secteur}</p>
+    `;
     liste.appendChild(card);
   });
 }
 
-// Charger au démarrage
 afficherUtilisateurs();
+
 
 
 
