@@ -1,4 +1,3 @@
-// Import Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
@@ -12,11 +11,9 @@ const firebaseConfig = {
   appId: "1:123456789:web:abcdef"
 };
 
-// Initialiser Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Formulaire
 const form = document.getElementById("formUtilisateur");
 const liste = document.getElementById("listeUtilisateurs");
 
@@ -32,15 +29,16 @@ form.addEventListener("submit", async (e) => {
   afficherUtilisateurs();
 });
 
-// Afficher les utilisateurs
+// Afficher les utilisateurs sous forme de cartes
 async function afficherUtilisateurs() {
   liste.innerHTML = "";
   const querySnapshot = await getDocs(collection(db, "utilisateurs"));
   querySnapshot.forEach((doc) => {
     const data = doc.data();
-    const li = document.createElement("li");
-    li.textContent = `${data.nom} - ${data.secteur} ;
-    liste.appendChild(li);
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<h3>${data.nom}</h3><p>Secteur : ${data.secteur}</p>`;
+    liste.appendChild(card);
   });
 }
 
