@@ -7,7 +7,7 @@ body {
 
 header {
   background: linear-gradient(90deg, #3498db, #2ecc71);
-  color: orange;
+  color: blue;
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -88,7 +88,7 @@ button:hover {
 }
 
 .card {
-  background: orange;
+  background: blue;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
