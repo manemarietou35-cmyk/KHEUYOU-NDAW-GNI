@@ -3,114 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>KHEUYOU-NDAW-GNI</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>KHEUYOU-NDAW-GNI</h1>
-    <p>Digitaliser la main-d’œuvre informelle au Sénégal</p>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#team">Équipe</a></li>
-      <li><a href="#value">Proposition de valeur</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <section id="about">
-    <h2>À propos</h2>
-    <p>Notre mission est de digitaliser la main-d’œuvre informelle au Sénégal afin de faciliter la mise en relation entre travailleurs qualifiés et employeurs.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email : contact@kheuyou-ndaw-gni.sn</p>
-    <p>Téléphone : +221 76 199 86 73</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 KHEUYOU-NDAW-GNI</p>
-  </footer>
-
-  <!-- Base de données -->
-  <section id="database">
-    <h2>Base de données</h2>
-
-    <!-- Boutons pour choisir -->
-    <button id="btnEmployee">Créer mon profil (Employé)</button>
-    <button id="btnRecruiter">Créer mon profil (Recruteur)</button>
-
-    <!-- Formulaire Employé (caché au départ) -->
-    <div id="employeeSection" style="display:none;">
-      <h3>Ajouter un employé</h3>
-      <form id="employeeForm">
-        <input type="text" id="employeeName" placeholder="Nom de l'employé" required>
-        <input type="text" id="employeeSkill" placeholder="Compétence" required>
-
-        <select id="employeeSector" required>
-          <option value="">-- Choisir un secteur --</option>
-          <option value="Agriculture">Agriculture</option>
-          <option value="Élevage">Élevage</option>
-          <option value="Informatique">Informatique</option>
-          <option value="Technique">Technique</option>
-          <option value="Pêche">Pêche</option>
-          <option value="Chimie">Chimie</option>
-          <option value="Ménage">Ménage</option>
-          <option value="Génie civil">Génie civil</option>
-          <option value="Gestionnaire">Gestionnaire</option>
-          <option value="Mécanique">Mécanique</option>
-        </select>
-
-        <button type="submit">Ajouter</button>
-      </form>
-
-      <h3>Liste des employés</h3>
-      <ul id="employeeList"></ul>
-    </div>
-
-    <!-- Formulaire Recruteur (caché au départ) -->
-    <div id="recruiterSection" style="display:none;">
-      <h3>Ajouter un recruteur</h3>
-      <form id="recruiterForm">
-        <input type="text" id="recruiterName" placeholder="Nom du recruteur" required>
-        <input type="text" id="recruiterCompany" placeholder="Entreprise" required>
-        <button type="submit">Ajouter</button>
-      </form>
-
-      <h3>Liste des recruteurs</h3>
-      <ul id="recruiterList"></ul>
-    </div>
-  </section>
-<div id="employeeSection" style="display:none;">
-  <h3>Ajouter un employé</h3>
-  <form id="employeeForm">
-    <input type="text" id="employeeName" placeholder="Nom de l'employé" required>
-    <input type="text" id="employeeSkill" placeholder="Compétence" required>
-
-    <select id="employeeSector" required onchange="updateSectorImage()">
-      <option value="">-- Choisir un secteur --</option>
-      <option value="Agriculture">Agriculture</option>
-      <option value="Construction">Construction</option>
-      <option value="Commerce">Commerce</option>
-      <option value="Artisanat">Artisanat</option>
-    </select>
-</section>
-    <!-- Image qui change selon le secteur choisi -->
-    <div id="sectorImage" style="margin-top:15px;">
-      <img id="sectorPreview" src="" alt="Illustration du secteur" style="display:none; width:200px; border-radius:10px; border:2px solid #00695c;">
-    </div>
-
-    <button type="submit">Ajouter</button>
+  <h2>Inscription utilisateur</h2>
+  <form id="formUtilisateur">
+    <input type="text" id="nom" placeholder="Nom" required>
+    <input type="text" id="secteur" placeholder="Secteur" required>
+    <button type="submit">Envoyer</button>
   </form>
 
-  <h3>Liste des employés</h3>
-  <ul id="employeeList"></ul>
-</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+    const firebaseConfig = {
+      apiKey: "TA_CLE_API",
+      authDomain: "ton-projet.firebaseapp.com",
+      projectId: "ton-projet",
+      storageBucket: "ton-projet.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abcdef"
+    };
 
- <script src="script.js"></script>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById("formUtilisateur").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nom = document.getElementById("nom").value;
+      const secteur = document.getElementById("secteur").value;
+
+      await addDoc(collection(db, "utilisateurs"), { nom, secteur });
+      alert("Utilisateur ajouté !");
+    });
+  </script>
 </body>
 </html>
