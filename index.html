@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>KHEUYOU-NDAW-GNI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>KHEUYOU-NDAW-GNI</h1>
+
   <h2>Inscription utilisateur</h2>
   <form id="formUtilisateur">
     <input type="text" id="nom" placeholder="Nom" required>
@@ -12,97 +15,10 @@
     <button type="submit">Envoyer</button>
   </form>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  <h2>Liste des utilisateurs</h2>
+  <ul id="listeUtilisateurs"></ul>
 
-    const firebaseConfig = {
-      apiKey: "TA_CLE_API",
-      authDomain: "ton-projet.firebaseapp.com",
-      projectId: "ton-projet",
-      storageBucket: "ton-projet.appspot.com",
-      messagingSenderId: "123456789",
-      appId: "1:123456789:web:abcdef"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    document.getElementById("formUtilisateur").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const nom = document.getElementById("nom").value;
-      const secteur = document.getElementById("secteur").value;
-
-      await addDoc(collection(db, "utilisateurs"), { nom, secteur });
-      alert("Utilisateur ajouté !");
-      <script type="module">
-  // Import Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  // Configuration Firebase (remplace par tes clés)
-  const firebaseConfig = {
-    apiKey: "TA_CLE_API",
-    authDomain: "ton-projet.firebaseapp.com",
-    projectId: "ton-projet",
-    storageBucket: "ton-projet.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdef"
-  };
-
-  // Initialiser Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  // Exemple : Ajouter un utilisateur
-  async function ajouterUtilisateur(nom, secteur) {
-    await addDoc(collection(db, "utilisateurs"), {
-      nom: nom,
-      secteur: secteur
-    });
-    alert("Utilisateur ajouté !");
-  }
-
-  // Exemple : Lire les utilisateurs
-  async function lireUtilisateurs() {
-    const querySnapshot = await getDocs(collection(db, "utilisateurs"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} =>`, doc.data());
-    });
-  }
-
-  // Appels de test
-  ajouterUtilisateur("Mariétou", "Télécoms");
-  lireUtilisateurs();
-</script>
-<script type="module">
-  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-  const supabaseUrl = "https://xyzcompany.supabase.co";
-  const supabaseKey = "TA_CLE_API";
-  const supabase = createClient(supabaseUrl, supabaseKey);
-
-  // Ajouter un utilisateur
-  async function ajouterUtilisateur(nom, secteur) {
-    const { data, error } = await supabase
-      .from("utilisateurs")
-      .insert([{ nom: nom, secteur: secteur }]);
-    console.log(data, error);
-  }
-
-  // Lire les utilisateurs
-  async function lireUtilisateurs() {
-    const { data, error } = await supabase
-      .from("utilisateurs")
-      .select("*");
-    console.log(data, error);
-  }
-
-  ajouterUtilisateur("Mariétou", "Télécoms");
-  lireUtilisateurs();
-</script>
-
-  
-  </script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
+
